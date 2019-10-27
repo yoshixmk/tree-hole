@@ -8,19 +8,35 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "test": "node test.js"
+    "test": "node test.js",
+    "compile": "tsc",
+    "dev": "ts-node src/index.ts",
+    "watch": "ts-node-dev --respawn src/index.ts",
+    "clean": "rimraf dist",
+    "build": "yarn clean && yarn compile"
   },
+  "author": "yoshixmk <pirori67@gmail.com>",
+  "private": false,
   "dependencies": {
     "ejs": "^2.5.6",
     "express": "^4.15.2"
   },
   "devDependencies": {
+    "@types/node": "^12.11.7",
+    "@typescript-eslint/eslint-plugin": "^2.4.0",
+    "@typescript-eslint/parser": "^2.4.0",
+    "@typescript-eslint/typescript-estree": "^2.4.0",
+    "eslint": "^6.5.1",
     "request": "^2.81.0",
-    "tape": "^4.7.0"
+    "rimraf": "^3.0.0",
+    "tape": "^4.7.0",
+    "ts-node": "^8.4.1",
+    "ts-node-dev": "^1.0.0-pre.43",
+    "typescript": "^3.6.4"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/heroku/node-js-getting-started"
+    "url": "https://github.com/yoshixmk/tree-hole"
   },
   "keywords": [
     "node",
