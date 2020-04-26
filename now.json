@@ -1,0 +1,12 @@
+{
+  "public": true,
+  "version": 2,
+  "builds": [{
+    "src": "next.config.js",
+    "use": "@now/next"
+  }],
+  "alias": "tree-hole.now.sh",
+  "env": {
+    "GITHUB_API_ENDPOINT": "https://api.github.com"
+  }
+}

@@ -1,48 +1,86 @@
 {
   "name": "tree-hole",
-  "version": "0.3.0",
-  "description": "A sample Node.js app using Express 4",
-  "engines": {
-    "node": "12.x"
-  },
-  "main": "index.js",
-  "scripts": {
-    "start": "node src/index.js",
-    "test": "node src/test.js",
-    "compile": "tsc",
-    "dev": "ts-node src/index.ts",
-    "watch": "ts-node-dev --respawn src/index.ts",
-    "clean": "rimraf dist",
-    "build": "yarn clean && yarn compile"
-  },
-  "author": "yoshixmk <pirori67@gmail.com>",
-  "private": false,
+  "version": "1.0.0",
+  "main": "server/index.js",
   "dependencies": {
-    "ejs": "^2.5.6",
-    "express": "^4.15.2"
+    "axios": "^0.19.0",
+    "compression": "^1.7.1",
+    "express": "^4.16.2",
+    "helmet": "^3.20.0",
+    "humps": "^2.0.1",
+    "immutable": "^3.8.2",
+    "next": "^9.3.1",
+    "next-redux-wrapper": "^5.0.0",
+    "next-routes": "^1.4.2",
+    "prop-types": "^15.6.1",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-helmet": "^5.2.1",
+    "react-is": "^16.13.1",
+    "react-redux": "^7.0.3",
+    "redux": "^4.0.1",
+    "redux-logger": "^3.0.6",
+    "redux-thunk": "^2.3.0",
+    "styled-components": "^5.0.0",
+    "styled-normalize": "^8.0.6"
   },
   "devDependencies": {
-    "@types/express": "^4.17.1",
-    "@types/node": "^12.11.7",
-    "@typescript-eslint/eslint-plugin": "^2.4.0",
-    "@typescript-eslint/parser": "^2.4.0",
-    "@typescript-eslint/typescript-estree": "^2.4.0",
-    "eslint": "^6.5.1",
-    "request": "^2.81.0",
+    "@babel/core": "^7.9.0",
+    "@testing-library/jest-dom": "^5.1.1",
+    "@testing-library/react": "^9.4.1",
+    "babel-core": "7.0.0-bridge.0",
+    "babel-eslint": "^10.1.0",
+    "babel-jest": "^25.1.0",
+    "babel-plugin-inline-dotenv": "^1.1.2",
+    "babel-plugin-module-resolver": "^4.0.0",
+    "jest": "^25.1.0",
+    "lint-staged": "^10.0.8",
+    "nodemon": "^2.0.1",
+    "pre-commit": "^1.2.2",
+    "react-test-renderer": "^16.2.0",
     "rimraf": "^3.0.0",
-    "tape": "^4.7.0",
-    "ts-node": "^8.4.1",
-    "ts-node-dev": "^1.0.0-pre.43",
-    "typescript": "^3.6.4"
+    "snazzy": "^8.0.0",
+    "standard": "^13.0.1"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/yoshixmk/tree-hole"
+  "peerDependencies": {
+    "eslint": "^4.12.1"
   },
-  "keywords": [
-    "node",
-    "heroku",
-    "express"
-  ],
-  "license": "MIT"
+  "scripts": {
+    "lint-staged": "lint-staged",
+    "build": "NODE_ENV=production next build",
+    "test:ci": "jest --maxWorkers=2 --ci",
+    "test": "jest --watch",
+    "start": "nodemon -w server server/index.js",
+    "serve": "NODE_ENV=production node server/index.js",
+    "clean": "rimraf node_modules/.cache .next",
+    "lint": "standard --verbose | snazzy",
+    "now-start": "yarn serve",
+    "lint:fix": "standard --fix --verbose | snazzy"
+  },
+  "pre-commit": "lint-staged",
+  "lint-staged": {
+    "*.js": [
+      "yarn lint:fix",
+      "git add"
+    ]
+  },
+  "standard": {
+    "parser": "babel-eslint",
+    "env": [
+      "jest"
+    ]
+  },
+  "engines": {
+    "node": ">= 10"
+  },
+  "jest": {
+    "modulePaths": [
+      "./src",
+      "./src/test"
+    ],
+    "setupFilesAfterEnv": [
+      "@testing-library/jest-dom/extend-expect"
+    ]
+  },
+  "repository": "yoshixmk/tree-hole"
 }
