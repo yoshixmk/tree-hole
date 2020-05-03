@@ -6,7 +6,8 @@
     "dev": "next",
     "build": "next build",
     "start": "next start",
-    "type-check": "tsc"
+    "type-check": "tsc",
+    "clean": "rimraf .next"
   },
   "dependencies": {
     "axios": "^0.19.0",
@@ -43,6 +44,7 @@
     "eslint": "^6.8.0",
     "jest": "^25.1.0",
     "react-test-renderer": "^16.2.0",
+    "rimraf": "^3.0.2",
     "typescript": "3.7.3"
   },
   "engines": {
@@ -58,5 +60,7 @@
     ]
   },
   "repository": "yoshixmk/tree-hole",
+  "author": "yoshixmk <pirori67@gmail.com>",
+  "private": true,
   "license": "MIT"
 }
