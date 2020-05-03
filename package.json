@@ -2,6 +2,20 @@
   "name": "tree-hole",
   "version": "1.0.0",
   "main": "server/index.js",
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start",
+    "type-check": "tsc",
+    "lint-staged": "lint-staged",
+    "test:ci": "jest --maxWorkers=2 --ci",
+    "test": "jest --watch",
+    "serve": "NODE_ENV=production node server/index.js",
+    "clean": "rimraf node_modules/.cache .next",
+    "lint": "standard --verbose | snazzy",
+    "now-start": "yarn serve",
+    "lint:fix": "standard --fix --verbose | snazzy"
+  },
   "dependencies": {
     "axios": "^0.19.0",
     "compression": "^1.7.1",
@@ -22,7 +36,8 @@
     "redux-logger": "^3.0.6",
     "redux-thunk": "^2.3.0",
     "styled-components": "^5.0.0",
-    "styled-normalize": "^8.0.6"
+    "styled-normalize": "^8.0.6",
+    "isomorphic-unfetch": "3.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.9.0",
@@ -40,22 +55,14 @@
     "react-test-renderer": "^16.2.0",
     "rimraf": "^3.0.0",
     "snazzy": "^8.0.0",
-    "standard": "^13.0.1"
+    "standard": "^13.0.1",
+    "@types/node": "^12.12.21",
+    "@types/react": "^16.9.16",
+    "@types/react-dom": "^16.9.4",
+    "typescript": "3.7.3"
   },
   "peerDependencies": {
     "eslint": "^4.12.1"
-  },
-  "scripts": {
-    "lint-staged": "lint-staged",
-    "build": "NODE_ENV=production next build",
-    "test:ci": "jest --maxWorkers=2 --ci",
-    "test": "jest --watch",
-    "start": "nodemon -w server server/index.js",
-    "serve": "NODE_ENV=production node server/index.js",
-    "clean": "rimraf node_modules/.cache .next",
-    "lint": "standard --verbose | snazzy",
-    "now-start": "yarn serve",
-    "lint:fix": "standard --fix --verbose | snazzy"
   },
   "pre-commit": "lint-staged",
   "lint-staged": {
@@ -82,5 +89,6 @@
       "@testing-library/jest-dom/extend-expect"
     ]
   },
-  "repository": "yoshixmk/tree-hole"
+  "repository": "yoshixmk/tree-hole",
+  "license": "MIT"
 }
