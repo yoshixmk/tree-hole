@@ -50,11 +50,15 @@ export const getStaticPaths: GetStaticPaths = async () => {
   return { paths, fallback: false };
 };
 
+type Params = {
+  params?: ParsedUrlQuery;
+};
+
 // This function gets called at build time on server-side.
 // It won't be called on client-side, so you can even do
 // direct database queries.
 // eslint-disable-next-line @typescript-eslint/require-await
-export const getStaticProps: GetStaticProps = async (params?: ParsedUrlQuery) => {
+export const getStaticProps: GetStaticProps = async ({params}: Params) => {
   try {
     const id: string | Array<string> | undefined = params?.id;
     const item: User | undefined = sampleUserData.find((data: User) => data.id === Number(id));
