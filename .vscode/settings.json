@@ -1,0 +1,8 @@
+{
+  "[python]": {
+  
+    "gitlens.codeLens.symbolScopes": [
+      "!Module"
+    ]
+  }
+}
