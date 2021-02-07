@@ -1,1 +1,5 @@
+.DS_Store
+
 scholar.log
+geckodriver.log
+samples/*.docx

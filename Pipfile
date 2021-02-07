@@ -10,6 +10,7 @@ scholarly = "*"
 autopep8 = "*"
 flake8 = "*"
 pylint = "*"
+pdf2docx = "*"
 
 [requires]
 python_version = "3.9"
@@ -18,3 +19,4 @@ python_version = "3.9"
 start = "python main.py"
 format = "autopep8 -ivr ."
 lint = "flake8 --show-source ."
+pdf2docx = "python to_docx.py"
